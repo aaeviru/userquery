@@ -74,6 +74,12 @@ for user in u:
         vect = [np.zeros(kk) for i in range(0,4)]
         for name in u[user]:
             count = count + 1
+            fin = open(root+name,'r')
+            line = fin.read()
+            title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
+            cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
+            print title.group(1)
+            print cl.group(2)
             result = dg(root,name,cll,sys.argv[3],1.04,a,wtol,kk)
             dl = np.array([10.0 for i in range(0,len(result)-1)])
 	    print '@'+root+name
