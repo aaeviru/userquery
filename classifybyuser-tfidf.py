@@ -6,11 +6,11 @@ import sys
 import math
 import re
 from os import path
+import numpy as np
 from scipy import spatial
 
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from tfidf.dg_lr import *
-
+from pythonlib import semantic as sm
 
 if len(sys.argv) != 4:
     print "input:topic-folder,cl-file,cl-floder"
@@ -24,35 +24,15 @@ def vecof(lines,a,wtol,kk):
         vec = vec + a[:,wtol[line]]
     return vec
 
-wtol = readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
+root = sys.argv[1]
+cll = sm.readcll2(sys.argv[2])
+clpath = sys.argv[3]
+
+wtol = sm.readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
 a = np.load('/home/ec2-user/data/classinfo/vt.npy')#lsa result
 kk = a.shape[0]
-root = sys.argv[1]
-
-if sys.argv[2] == 'rand':
-    cll = {}
-    for i in range(0,kk):
-	cll[i] = np.random.randint(kk,size=3)
-
-else:
-    fcl = open(sys.argv[2],'r')
-    cll = {}
-    for line in fcl:
-	line = line.strip(' \n')
-	line = line.split(' ')
-	for w in line:
-	    ww = int(w)
-	    cll[ww] = list(line)
-	    cll[ww].remove(w)
-    fcl.close()
-
-
 
 u = {}
-
-
-
-
 
 for root, dirs, files in os.walk(root):
     for name in files:
@@ -66,7 +46,6 @@ for root, dirs, files in os.walk(root):
             if user not in u:
                 u[user] = set()
             u[user].add(name)
-
 
 total = 0
 hit = 0
@@ -86,7 +65,9 @@ for user in u:
             cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
             #print title.group(1)
             #print cl.group(2)
-            result = dg(root,name,cll,sys.argv[3],1.04,a,wtol,kk)
+            result = sm.dg2(root+name,cll,clpath,1.04,2)
+            if result == None:
+                continue
             dl = np.array([10.0 for i in range(0,len(result)-1)])
 	    print '@'+root+name
 	    for i in range(0,len(result)-1):
@@ -110,7 +91,7 @@ for user in u:
                     hit = hit + 1
 
 
-print 'usertotal:',usertotal
+print 'usernum:',usernum
 print 'hit:',hit
 print 'total:',total
 print 'hit/total:',hit*1.0/total

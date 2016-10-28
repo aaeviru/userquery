@@ -7,7 +7,7 @@ import math
 import re
 from os import path
 from scipy import spatial
-
+from sys import path
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from tfidf.dg_lr import *
 
@@ -110,7 +110,7 @@ for user in u:
                     hit = hit + 1
 
 
-print 'usertotal:',usertotal
+print 'usernum:',usernum
 print 'hit:',hit
 print 'total:',total
 print 'hit/total:',hit*1.0/total
