@@ -7,13 +7,14 @@ import math
 import re
 from os import path
 from scipy import spatial
-from sys import path
+import numpy as np
+
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
-from tfidf.dg_lr import *
+from pythonlib import semantic as sm
 
 
-if len(sys.argv) != 4:
-    print "input:topic-folder,cl-file,cl-floder"
+if len(sys.argv) != 5:
+    print "input:topic-folder,cl-file,cl-floder,type[0(lsa)/1(lda)]"
     sys.exit(1)
 
 
@@ -24,15 +25,22 @@ def vecof(lines,a,wtol,kk):
         vec = vec + a[:,wtol[line]]
     return vec
 
-wtol = readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
+type = int(sys.argv[4])
+wtol = sm.readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
 a = np.load('/home/ec2-user/data/classinfo/vt.npy')#lsa result
-kk = a.shape[0]
+ukk = a.shape[0]
+akk = ukk
+if type == 1:
+    b = np.load('/home/ec2-user/git/statresult/lda-30-2000-phi.npy')
+    s = np.load('/home/ec2-user/git/statresult/lda-30-2000-pz.npy')
+    ukk = b.shape[0]
+
 root = sys.argv[1]
 
 if sys.argv[2] == 'rand':
     cll = {}
-    for i in range(0,kk):
-	cll[i] = np.random.randint(kk,size=3)
+    for i in range(0,ukk):
+	cll[i] = np.random.randint(ukk,size=3)
 
 else:
     fcl = open(sys.argv[2],'r')
@@ -46,13 +54,7 @@ else:
 	    cll[ww].remove(w)
     fcl.close()
 
-
-
 u = {}
-
-
-
-
 
 for root, dirs, files in os.walk(root):
     for name in files:
@@ -76,8 +78,8 @@ for user in u:
         print user
         usernum = usernum + 1
         count = 0
-        vec = [np.zeros(kk) for i in range(0,4)]
-        vect = [np.zeros(kk) for i in range(0,4)]
+        vec = [np.zeros(akk) for i in range(0,4)]
+        vect = [np.zeros(akk) for i in range(0,4)]
         for name in u[user]:
             count = count + 1
             fin = open(root+name,'r')
@@ -86,15 +88,19 @@ for user in u:
             cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
             #print title.group(1)
             #print cl.group(2)
-            result = dg(root,name,cll,sys.argv[3],1.04,a,wtol,kk)
+            if type == 0:
+                result = sm.dg(root,name,cll,sys.argv[3],1.04,a,wtol,ukk)
+            else:
+                result = sm.dg3(root,name,cll,sys.argv[3],1.04,b,s,wtol,ukk)
+                
             dl = np.array([10.0 for i in range(0,len(result)-1)])
 	    print '@'+root+name
 	    for i in range(0,len(result)-1):
                 if count == 1:
-                    vect[i] = vecof(result[i],a,wtol,kk)
+                    vect[i] = sm.vecof(result[i],a,wtol,akk)
 		else:
                     for j in range(0,len(result)-1):
-                        vecr = vecof(result[i],a,wtol,kk)
+                        vecr = sm.vecof(result[i],a,wtol,akk)
                         dlt = spatial.distance.cosine(vecr,vec[j])
                         #print i,j,vecr.argmax(),dlt
                         if(dlt<dl[i]):
@@ -108,6 +114,7 @@ for user in u:
                 total = total +1
                 if dl.argmin() == 3:
                     hit = hit + 1
+            #print dl.argmin()
 
 
 print 'usernum:',usernum
