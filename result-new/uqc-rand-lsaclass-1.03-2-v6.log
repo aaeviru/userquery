@@ -1,4 +1,4 @@
-2016-11-21 20:01:25.537247
+2016-11-25 17:58:58.295233
 topic-folder:/home/ec2-user/data/topics/
 cl-file:rand
 cl-floder:/home/ec2-user/data/lsaclass/
@@ -1785,10 +1785,10 @@ output-floder:/home/ec2-user/git/userquery/result-new
 @/home/ec2-user/data/topics/4012
 @/home/ec2-user/data/topics/3549
 usernum: 72
-hit: 1142
-mthit: 387
-mthls: 614
+hit: 1258
+mthit: 377
+mthls: 678
 total: 1562
-hit/total: 0.731113956466
-mthit/total: 0.247759282971
-mthls/total: 0.393085787452
+hit/total: 0.805377720871
+mthit/total: 0.241357234315
+mthls/total: 0.434058898848

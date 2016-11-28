@@ -12,6 +12,7 @@ import numpy as np
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from pythonlib import semantic as sm
 from pythonlib import sysf
+from pythonlib import getapy as gp
 
 inputform = "topic-folder,cl-file,cl-floder,zipf,type[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
 
@@ -103,7 +104,10 @@ total = 0
 hit = 0
 mthit = 0
 mtls = 0
+srp = 0
 usernum = 0
+wam = gp.init("NTCIR")
+getar = gp.intp(100)
 for user in u:
     if len(u[user]) > 5:
         print user
@@ -133,7 +137,13 @@ for user in u:
                 else:
                     result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,type)
             #print result[-1]
-                
+            srlen = gp.search(wam,list(result[int(result[-1])]),getar,100)
+            rqn = np.array([getar[i] for i in range(srlen)])
+            for i in range(len(result)-1):
+                if i != int(result[-1]):
+                    srlen = gp.search(wam,list(result[i]),getar,100)
+                    srp = srp + len(np.intersect1d(rqn,np.array([getar[i] for i in range(srlen)])))*1.0/len(rqn)
+
             dl = np.array([10.0 for i in range(0,len(result)-1)])
             dlu = np.array([10.0 for i in range(0,len(result)-1)])
             mt = []
@@ -180,7 +190,9 @@ print 'usernum:',usernum
 print 'hit:',hit
 print 'mthit:',mthit
 print 'mthls:',mtls
+print 'srp:',srp
 print 'total:',total
 print 'hit/total:',hit*1.0/total
-print 'mthit/total:',mthit*1.0/total
-print 'mthls/total:',mtls*1.0/total
+print 'mthit/(total+usernum):',mthit*1.0/(total+usernum)
+print 'mthls/(total+usernum):',mtls*1.0/(total+usernum)
+print 'srp/(total+usernum):',srp*1.0/(total+usernum)
