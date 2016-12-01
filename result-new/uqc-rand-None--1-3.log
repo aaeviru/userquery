@@ -1,0 +1,14 @@
+2016-11-29 17:26:50.625338
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand
+cl-floder:None
+zipf:-1
+type[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:3
+output-floder:result-new/
+
+Traceback (most recent call last):
+  File "classifybyuser.py", line 48, in <module>
+    b = np.load('/home/ec2-user/git/statresult/lda-32-1000-top1000-phi.npy')
+  File "/usr/lib64/python2.7/dist-packages/numpy/lib/npyio.py", line 358, in load
+    fid = open(file, "rb")
+IOError: [Errno 2] No such file or directory: '/home/ec2-user/git/statresult/lda-32-1000-top1000-phi.npy'

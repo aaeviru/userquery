@@ -12,9 +12,10 @@ import numpy as np
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 from pythonlib import semantic as sm
 from pythonlib import sysf
+from pythonlib import crand
 from pythonlib import getapy as gp
 
-inputform = "topic-folder,cl-file,cl-floder,zipf,type[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
+inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
 
 if len(sys.argv) != 7:
     print "input:" + inputform
@@ -30,11 +31,12 @@ def vecof(lines,a,wtol,kk):
         vec = vec + a[:,wtol[line]]
     return vec
 
-type = int(sys.argv[5])
+stype = int(sys.argv[5])
 zipf = float(sys.argv[4])
 wtola = sm.readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
-if type == 3:
-    wtolu = sm.readwl("/home/ec2-user/git/statresult/wordslist_top1000_dsw.txt")
+#zipf = crand.zipf_init(len(wtola))
+if stype == 3:
+    wtolu = sm.readwl("/home/ec2-user/git/statresult/wordslist_top10000_dsw.txt")
 else:
     wtolu = wtola
 a = np.load('/home/ec2-user/data/classinfo/vt.npy')#lsa result
@@ -42,14 +44,14 @@ b = a
 ukk = a.shape[0]
 s = None
 akk = ukk
-if type == 3:
+if stype == 3:
 #    b = np.load('/home/ec2-user/git/statresult/lda-30-2000-phi.npy')
 #    s = np.load('/home/ec2-user/git/statresult/lda-30-2000-pz.npy')
-    b = np.load('/home/ec2-user/git/statresult/lda-32-1000-top1000-phi.npy')
-    s = np.load('/home/ec2-user/git/statresult/lda-32-1000-top1000-pz.npy')
+    b = np.load('/home/ec2-user/git/statresult/lda-32-2000-top10000-phi.npy')
+    s = np.load('/home/ec2-user/git/statresult/lda-32-2000-top10000-pz.npy')
     ukk = b.shape[0]
-    if zipf < 0:
-        fldawl = open('/home/ec2-user/git/statresult/wordslist_top1000_dsw.txt','r')#wordlist for lda
+    if type(zipf) == float and zipf < 0:
+        fldawl = open('/home/ec2-user/git/statresult/wordslist_top10000_dsw.txt','r')#wordlist for lda
         i = 0
         ltow = {}
         for line in fldawl:
@@ -126,16 +128,16 @@ for user in u:
             cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
             #print title.group(1)
             #print cl.group(2)
-            if count == 1 or zipf < 0:
-                if type == 3 and zipf < 0:
+            if count == 1 or type(zipf) == float and zipf < 1:
+                if stype == 3 and type(zipf) == float and zipf < 0:
                     result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
                 else:
-                    result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,type)
+                    result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
             else:
-                if type == 3 and zipf < 0:
+                if stype == 3 and type(zipf) == float and zipf < 0:
                     result = sm.dg4(root+name,cll,b,s,p,wtolu,ltow,ukk,vecu)
                 else:
-                    result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,type)
+                    result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,stype)
             #print result[-1]
             srlen = gp.search(wam,list(result[int(result[-1])]),getar,100)
             rqn = np.array([getar[i] for i in range(srlen)])
@@ -182,8 +184,7 @@ for user in u:
                 mthit = mthit + 1
             if np.array(mt).argmin() == int(result[-1]):
                 mtls = mtls + 1
-
-            #print dl.argmin(),hit,result[-1],np.array(mt).argmax()
+            #print dl,mt,result[-1],hit,mthit,mtls
 
 
 print 'usernum:',usernum

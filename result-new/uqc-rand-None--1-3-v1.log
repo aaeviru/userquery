@@ -1,0 +1,19 @@
+2016-11-29 17:28:04.896920
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand
+cl-floder:None
+zipf:-1
+type[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:3
+output-floder:result-new/
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/1085
+Traceback (most recent call last):
+  File "classifybyuser.py", line 131, in <module>
+    result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
+  File "/home/ec2-user/git/pythonlib/semantic.py", line 346, in dg3
+    cl = classof2(lines,a,s,wtol,kk)
+  File "/home/ec2-user/git/pythonlib/semantic.py", line 136, in classof2
+    vec = vec * s
+ValueError: operands could not be broadcast together with shapes (32) (311111) 

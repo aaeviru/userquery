@@ -1,0 +1,21 @@
+2016-11-30 14:28:05.595569
+topic-folder:/home/ec2-user/data/topics/
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:1.028
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+output-floder:/home/ec2-user/git/userquery/result-new
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/1085
+Traceback (most recent call last):
+  File "/home/ec2-user/git/userquery/classifybyuser.py", line 135, in <module>
+    result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
+  File "/home/ec2-user/git/pythonlib/semantic.py", line 224, in dg
+    dp = crand.randfunc2(zipf)
+  File "/home/ec2-user/git/pythonlib/crand.py", line 14, in randfunc2
+    return np.searchsorted(f,r)
+  File "/usr/lib64/python2.7/dist-packages/numpy/core/fromnumeric.py", line 814, in searchsorted
+    return searchsorted(v, side, sorter)
+ValueError: object of too small depth for desired array
