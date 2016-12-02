@@ -144,12 +144,12 @@ for user in u:
                     if count == 6:
                         vect[i] = sm.vecof(result[i],a,wtola,akk)
                         mt.append(vect[i].max())
-                        sim.append(attack.simatt(pu,result[i]))
+                        sim.append(attack.simatt(result[i],pu))
                         vecut[i] = sm.vecof0(result[i],b,s,wtolu,ukk)
                     else:
                         vecr = sm.vecof(result[i],a,wtola,akk)
                         mt.append(vecr.max())
-                        sim.append(attack.simatt(pu,result[i]))
+                        sim.append(attack.simatt(result[i],pu))
                         vecur = sm.vecof0(result[i],b,s,wtolu,ukk)
                         for j in range(0,len(result)-1):
                             dlt = spatial.distance.cosine(vecur,vecu[j])
@@ -168,7 +168,6 @@ for user in u:
                 if np.array(mt).argmin() == int(result[-1]):
                     mtls = mtls + 1
                 print sim,result[-1],hit
-                raw_input()
 
 print 'usernum:',usernum
 print 'hit:',hit

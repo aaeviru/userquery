@@ -1,6 +1,6 @@
-2016-12-01 19:53:14.933370
+2016-12-02 01:36:36.093097
 topic-folder:/home/ec2-user/data/topics/
-cl-file:/home/ec2-user/git/tfidf/result-new/b2-3.txt
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-0.txt
 cl-floder:/home/ec2-user/data/lsaclass/
 zipf:0.5
 stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
@@ -1785,12 +1785,12 @@ output-floder:/home/ec2-user/git/userquery/result-new
 @/home/ec2-user/data/topics/4012
 @/home/ec2-user/data/topics/3549
 usernum: 72
-hit: 834
-mthit: 1266
-mthls: 30
-srp: 98.0
+hit: 1386
+mthit: 1132
+mthls: 41
+srp: 84.7
 total: 1562
-hit/total: 0.533930857875
-mthit/(total+usernum): 0.774785801714
-mthls/(total+usernum): 0.0183598531212
-srp/(total+usernum): 0.0599755201958
+hit/total: 0.887323943662
+mthit/(total+usernum): 0.692778457772
+mthls/(total+usernum): 0.0250917992656
+srp/(total+usernum): 0.0518359853121

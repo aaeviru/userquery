@@ -1,6 +1,6 @@
-2016-12-01 19:53:14.933370
+2016-12-02 02:02:38.684811
 topic-folder:/home/ec2-user/data/topics/
-cl-file:/home/ec2-user/git/tfidf/result-new/b2-3.txt
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-2.txt
 cl-floder:/home/ec2-user/data/lsaclass/
 zipf:0.5
 stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
