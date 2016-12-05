@@ -122,10 +122,10 @@ for user in u:
         for name in u[user]:
 	    print '@'+root+name
             count = count + 1
-            fin = open(root+name,'r')
-            line = fin.read()
-            title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
-            cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
+            #fin = open(root+name,'r')
+            #line = fin.read()
+            #title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
+            #cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
             #print title.group(1)
             #print cl.group(2)
             if count == 1 or type(zipf) == float and zipf < 1:

@@ -21,8 +21,12 @@ if len(sys.argv) != 7:
     print "input:" + inputform
     sys.exit(1)
 
-outf = sys.argv[6]+'/sim-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
+outf = sys.argv[6]+'/sim2-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
 fout = sysf.logger(outf,inputform)
+
+otype = 0
+if sys.argv[6] == 'stdout':
+    otype = 1
 
 def vecof(lines,a,wtol,kk):
     vec = np.zeros(kk)
@@ -68,9 +72,7 @@ if stype == 3:
 
 
 root = sys.argv[1]
-
-cll = sm.readcll0(sys.argv[2],stype)
- 
+cll = sm.readcll0(sys.argv[2],ukk,stype)
 u = {}
 
 for root, dirs, files in os.walk(root):
@@ -102,56 +104,66 @@ for user in u:
         vect = [np.zeros(akk) for i in range(0,4)]
         vecu = [np.zeros(ukk) for i in range(0,4)]
         vecut = [np.zeros(ukk) for i in range(0,4)]
-        pu = []
+        pu = [[] for i in range(4)]
+        put = [[] for i in range(4)]
         for name in u[user]:
-	    print '@'+root+name
-            count = count + 1
-            if count < 6:
-                fin  = open(root+name+'.txt','r')
-                lines = fin.readlines()
+            if otype == 1:
+                fin = open(root+name,'r')
+                line = fin.read()
                 fin.close()
-                pu.append([line.strip('\n') for line in lines])
-            else:
-                if count == 6 or type(zipf) == float and zipf < 1:
-                    if stype == 3 and type(zipf) == float and zipf < 0:
-                        result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
-                    else:
-                        result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
+                title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
+                cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
+                print '@'+root+name
+                print title.group(1)
+                print cl.group(2)
+
+            count = count + 1
+            if count == 1 or type(zipf) == float and zipf < 1:
+                if stype == 3 and type(zipf) == float and zipf < 0:
+                    result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
                 else:
-                    if stype == 3 and type(zipf) == float and zipf < 0:
-                        result = sm.dg4(root+name,cll,b,s,p,wtolu,ltow,ukk,vecu)
-                    else:
-                        result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,stype)
-                dlu = np.array([10.0 for i in range(0,len(result)-1)])
-                mt = []
-                sim = []
-                for i in range(0,len(result)-1):
-                    if count == 6:
-                        vect[i] = sm.vecof(result[i],a,wtola,akk)
-                        mt.append(vect[i].max())
-                        sim.append(attack.simatt(result[i],pu))
-                        vecut[i] = sm.vecof0(result[i],b,s,wtolu,ukk)
-                    else:
-                        vecr = sm.vecof(result[i],a,wtola,akk)
-                        mt.append(vecr.max())
-                        sim.append(attack.simatt(result[i],pu))
-                        vecur = sm.vecof0(result[i],b,s,wtolu,ukk)
-                        for j in range(0,len(result)-1):
-                            dlt = spatial.distance.cosine(vecur,vecu[j])
-                            if(dlt<dlu[i]):
-                                dlu[i] = dlt
-                                vecut[i] = vecu[j]
-                        vecut[i] = (vecur + vecut[i] * count)/(count+1)
-                for i in range(0,len(result)-1):
-                    vecu[i] = vecut[i]
-                if count > 6:
-                    total = total +1
-                    if np.array(sim).argmax() == int(result[-1]):
-                        hit = hit + 1
-                if np.array(mt).argmax() == int(result[-1]):
-                    mthit = mthit + 1
-                if np.array(mt).argmin() == int(result[-1]):
-                    mtls = mtls + 1
+                    result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
+            else:
+                if stype == 3 and type(zipf) == float and zipf < 0:
+                    result = sm.dg4(root+name,cll,b,s,p,wtolu,ltow,ukk,vecu)
+                else:
+                    result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,stype)
+            dlu = np.array([10.0 for i in range(0,len(result)-1)])
+            sim = np.array([0.0 for i in range(0,len(result)-1)])
+            mt = []
+            for i in range(0,len(result)-1):
+                if count == 1:
+                    vect[i] = sm.vecof(result[i],a,wtola,akk)
+                    mt.append(vect[i].max())
+                    vecut[i] = sm.vecof0(result[i],b,s,wtolu,ukk)
+                    put[i].append(result[i][0:-2])
+                else:
+                    vecr = sm.vecof(result[i],a,wtola,akk)
+                    mt.append(vecr.max())
+                    vecur = sm.vecof0(result[i],b,s,wtolu,ukk)
+                    for j in range(0,len(result)-1):
+                        dlt = spatial.distance.cosine(vecur,vecu[j])
+                        simt = attack.simatt(result[i],pu[j])
+                        if (simt>sim[i]):
+                            sim[i] = simt
+                            put[i] = pu[j]
+                        if(dlt<dlu[i]):
+                            dlu[i] = dlt
+                            vecut[i] = vecu[j]
+                    put[i].append(result[i][0:-2])
+                    vecut[i] = (vecur + vecut[i] * count)/(count+1)
+            for i in range(0,len(result)-1):
+                vecu[i] = vecut[i]
+                pu[i] = put[i]
+            if count > 1:
+                total = total +1
+                if np.array(sim).argmax() == int(result[-1]):
+                    hit = hit + 1
+            if np.array(mt).argmax() == int(result[-1]):
+                mthit = mthit + 1
+            if np.array(mt).argmin() == int(result[-1]):
+                mtls = mtls + 1
+            if otype == 1:
                 print sim,result[-1],hit
 
 print 'usernum:',usernum
