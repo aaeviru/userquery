@@ -14,14 +14,15 @@ from pythonlib import semantic as sm
 from pythonlib import sysf
 from pythonlib import crand
 from pythonlib import getapy as gp
+from pythonlib import attack
 
-inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
+inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[0(diff)/1(same)],output-floder"
 
-if len(sys.argv) != 7:
+if len(sys.argv) != 8:
     print "input:" + inputform
     sys.exit(1)
 
-outf = sys.argv[6]+'/uqc-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
+outf = sys.argv[-1]+'/uqc-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
 fout = sysf.logger(outf,inputform)
 
 def vecof(lines,a,wtol,kk):
@@ -32,6 +33,10 @@ def vecof(lines,a,wtol,kk):
     return vec
 
 stype = int(sys.argv[5])
+dtype = int(sys.argv[6])
+otype = 0
+if sys.argv[-1] == 'stdout':
+    otype = 1
 zipf = float(sys.argv[4])
 wtola = sm.readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
 #zipf = crand.zipf_init(len(wtola))
@@ -69,23 +74,7 @@ if stype == 3:
 
 root = sys.argv[1]
 
-if sys.argv[2] == 'rand':
-    cll = {}
-    for i in range(0,ukk):
-	cll[i] = np.random.randint(ukk,size=3)
-
-else:
-    fcl = open(sys.argv[2],'r')
-    cll = {}
-    for line in fcl:
-	line = line.strip(' \n')
-	line = line.split(' ')
-	for w in line:
-	    ww = int(w)
-	    cll[ww] = list(line)
-	    cll[ww].remove(w)
-    fcl.close()
-
+cll = sm.readcll0(sys.argv[2],ukk,stype)
 u = {}
 
 for root, dirs, files in os.walk(root):
@@ -104,23 +93,31 @@ for root, dirs, files in os.walk(root):
 
 total = 0
 hit = 0
+simhit = 0
 mthit = 0
 mtls = 0
 srp = 0
+srp20 = 0
+srp100 = 0
+srp500 = 0
 usernum = 0
+
+dummylen = len(cll.values()[0])
 wam = gp.init("NTCIR")
-getar = gp.intp(100)
+getar = gp.intp(1000)
 for user in u:
     if len(u[user]) > 5:
         print user
         usernum = usernum + 1
         count = 0
-        vec = [np.zeros(akk) for i in range(0,4)]
-        vect = [np.zeros(akk) for i in range(0,4)]
-        vecu = [np.zeros(ukk) for i in range(0,4)]
-        vecut = [np.zeros(ukk) for i in range(0,4)]
+        vec = [np.zeros(akk) for i in range(dummylen+1)]
+        vect = [np.zeros(akk) for i in range(dummylen+1)]
+        vecu = [np.zeros(ukk) for i in range(dummylen+1)]
+        vecut = [np.zeros(ukk) for i in range(dummylen+1)]
+        pu = [[] for i in range(dummylen+1)]
+        put = [[] for i in range(dummylen+1)]
         for name in u[user]:
-	    print '@'+root+name
+	    print '@@'+root+name
             count = count + 1
             #fin = open(root+name,'r')
             #line = fin.read()
@@ -128,7 +125,9 @@ for user in u:
             #cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
             #print title.group(1)
             #print cl.group(2)
-            if count == 1 or type(zipf) == float and zipf < 1:
+            if dtype == 1:
+              result = sm.dg5(root+name,sys.argv[3],dummylen,b,s,wtolu,ukk,stype)  
+            elif count == 1 or type(zipf) == float and zipf < 1:
                 if stype == 3 and type(zipf) == float and zipf < 0:
                     result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
                 else:
@@ -139,32 +138,43 @@ for user in u:
                 else:
                     result = sm.dg2(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,vecu,stype)
             #print result[-1]
-            srlen = gp.search(wam,list(result[int(result[-1])]),getar,100)
+            srlen = gp.search(wam,list(result[int(result[-1])]),getar,1000)
             rqn = np.array([getar[i] for i in range(srlen)])
             for i in range(len(result)-1):
                 if i != int(result[-1]):
-                    srlen = gp.search(wam,list(result[i]),getar,100)
-                    srp = srp + len(np.intersect1d(rqn,np.array([getar[i] for i in range(srlen)])))*1.0/len(rqn)
+                    srlen = gp.search(wam,list(result[i]),getar,1000)
+                    dqn = np.array([getar[i] for i in range(srlen)])
+                    srp20 = srp20 + len(np.intersect1d(rqn[0:20],dqn[2:20]))*1.0/20.0
+                    srp100 = srp100 + len(np.intersect1d(rqn[0:100],dqn[0:100]))*1.0/100.0
+                    srp500 = srp500 + len(np.intersect1d(rqn[0:500],dqn[0:500]))*1.0/500.0
+                    srp = srp + len(np.intersect1d(rqn,dqn))*1.0/len(rqn)
 
             dl = np.array([10.0 for i in range(0,len(result)-1)])
             dlu = np.array([10.0 for i in range(0,len(result)-1)])
+            sim = np.array([0.0 for i in range(0,len(result)-1)])
             mt = []
 	    for i in range(0,len(result)-1):
                 if count == 1:
                     vect[i] = sm.vecof(result[i],a,wtola,akk)
                     mt.append(vect[i].max())
                     vecut[i] = sm.vecof0(result[i],b,s,wtolu,ukk)
+                    put[i].append(result[i][0:-2])
 		else:
                     vecr = sm.vecof(result[i],a,wtola,akk)
                     mt.append(vecr.max())
                     vecur = sm.vecof0(result[i],b,s,wtolu,ukk)
                     for j in range(0,len(result)-1):
                         dlt = spatial.distance.cosine(vecr,vec[j])
+                        simt = attack.simatt(result[i],pu[j])
+                        if (simt>sim[i]):
+                            sim[i] = simt
+                            put[i] = pu[j]
                         #print i,j,vecr.argmax(),dlt
                         if(dlt<dl[i]):
                             dl[i] = dlt
                             vect[i] = vec[j]
                         dlt = spatial.distance.cosine(vecur,vecu[j])
+
                         #print vecur,vecu[j]
                         #print i,j,vecur.argmax(),dlt
                         if(dlt<dlu[i]):
@@ -172,28 +182,47 @@ for user in u:
                             vecut[i] = vecu[j]
                     vecut[i] = (vecur + vecut[i] * count)/(count+1)
                     vect[i] = (vecr + vect[i] * count)/(count+1)
-            
+                    put[i].append(result[i][0:-2])
             for i in range(0,len(result)-1):
+                pu[i] = put[i]
                 vec[i] = vect[i]        
                 vecu[i] = vecut[i]
             if count > 1:
                 total = total +1
                 if dl.argmin() == int(result[-1]):
                     hit = hit + 1
+                if np.array(sim).argmax() == int(result[-1]):
+                    simhit = simhit + 1
             if np.array(mt).argmax() == int(result[-1]):
                 mthit = mthit + 1
             if np.array(mt).argmin() == int(result[-1]):
                 mtls = mtls + 1
-            #print dl,mt,result[-1],hit,mthit,mtls
+            if otype == 1:
+                for i in range(4):
+                    for j in result[i][0:-2]:
+                        print j,
+                    print
+                print "mt:",mt
+                print "dl:",dl
+                print "sim:",sim
+                print result[-1]
+                print "hit:"+str(hit)," simhit:"+str(simhit)," mthit:"+str(mthit)," mtls:"+str(mtls)," total:"+str(total)
+                if total > 0:
+                    print "srp:"+str(srp/3.0/total),"srp20:"+str(srp20/3.0/total),"srp100:"+str(srp100/3.0/total),"srp500:"+str(srp500/3.0/total)
 
 
 print 'usernum:',usernum
 print 'hit:',hit
+print 'simhit:',simhit
 print 'mthit:',mthit
 print 'mthls:',mtls
 print 'srp:',srp
 print 'total:',total
 print 'hit/total:',hit*1.0/total
+print 'simhit/total:',simhit*1.0/total
 print 'mthit/(total+usernum):',mthit*1.0/(total+usernum)
 print 'mthls/(total+usernum):',mtls*1.0/(total+usernum)
-print 'srp/(total+usernum):',srp*1.0/(total+usernum)
+print 'srp/(total+usernum):',srp*1.0/(total+usernum)/dummylen
+print 'srp20/(total+usernum):',srp20*1.0/(total+usernum)/dummylen
+print 'srp100/(total+usernum):',srp100*1.0/(total+usernum)/dummylen
+print 'srp500/(total+usernum):',srp500*1.0/(total+usernum)/dummylen

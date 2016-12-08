@@ -1,6 +1,6 @@
-2016-12-05 15:39:42.262726
+2016-12-05 16:14:24.168783
 topic-folder:/home/ec2-user/data/topics/
-cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
+cl-file:rand
 cl-floder:/home/ec2-user/data/lsaclass/
 zipf:0.5
 stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
@@ -85,12 +85,12 @@ output-floder:/home/ec2-user/git/userquery/result-new
 松下電工株式会社
 
 usernum: 39
-hit: 876
-mthit: 397
-mthls: 281
+hit: 1199
+mthit: 888
+mthls: 41
 srp: 0
 total: 1347
-hit/total: 0.650334075724
-mthit/(total+usernum): 0.286435786436
-mthls/(total+usernum): 0.202741702742
+hit/total: 0.890126206385
+mthit/(total+usernum): 0.640692640693
+mthls/(total+usernum): 0.0295815295815
 srp/(total+usernum): 0.0

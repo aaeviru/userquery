@@ -1,4 +1,4 @@
-2016-12-05 15:39:42.262726
+2016-12-05 18:33:59.834809
 topic-folder:/home/ec2-user/data/topics/
 cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
 cl-floder:/home/ec2-user/data/lsaclass/
@@ -85,12 +85,12 @@ output-floder:/home/ec2-user/git/userquery/result-new
 松下電工株式会社
 
 usernum: 39
-hit: 876
+hit: 867
 mthit: 397
 mthls: 281
 srp: 0
 total: 1347
-hit/total: 0.650334075724
+hit/total: 0.643652561247
 mthit/(total+usernum): 0.286435786436
 mthls/(total+usernum): 0.202741702742
 srp/(total+usernum): 0.0
