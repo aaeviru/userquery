@@ -23,7 +23,9 @@ if len(sys.argv) != 7:
 
 outf = sys.argv[6]+'/sim-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
 fout = sysf.logger(outf,inputform)
-
+otype = 0
+if sys.argv[6] == 'stdout':
+    otype = 1
 def vecof(lines,a,wtol,kk):
     vec = np.zeros(kk)
     for line in lines:
@@ -69,7 +71,7 @@ if stype == 3:
 
 root = sys.argv[1]
 
-cll = sm.readcll0(sys.argv[2],stype)
+cll = sm.readcll0(sys.argv[2],ukk,stype)
  
 u = {}
 
@@ -93,15 +95,17 @@ mthit = 0
 mtls = 0
 srp = 0
 usernum = 0
+dummylen = len(cll.values()[0])
+
 for user in u:
     if len(u[user]) > 10:
         print user
         usernum = usernum + 1
         count = 0
-        vec = [np.zeros(akk) for i in range(0,4)]
-        vect = [np.zeros(akk) for i in range(0,4)]
-        vecu = [np.zeros(ukk) for i in range(0,4)]
-        vecut = [np.zeros(ukk) for i in range(0,4)]
+        vec = [np.zeros(akk) for i in range(dummylen+1)]
+        vect = [np.zeros(akk) for i in range(dummylen+1)]
+        vecu = [np.zeros(ukk) for i in range(dummylen+1)]
+        vecut = [np.zeros(ukk) for i in range(dummylen+1)]
         pu = []
         for name in u[user]:
 	    print '@'+root+name
@@ -152,7 +156,22 @@ for user in u:
                     mthit = mthit + 1
                 if np.array(mt).argmin() == int(result[-1]):
                     mtls = mtls + 1
-                print sim,result[-1],hit
+                mtls = mtls + 1
+                if otype == 1:
+                    for i in pu:
+                        for j in i:
+                            print j,
+                        print
+                    print
+                    for i in range(dummylen+1):
+                        print i,
+                        for j in result[i][0:]:
+                            print j,
+                        print
+                    print "mt:",mt
+                    print "sim:",sim
+                    print result[-1]
+                    print "hit:"+str(hit)," mthit:"+str(mthit)," mtls:"+str(mtls)," total:"+str(total)
 
 print 'usernum:',usernum
 print 'hit:',hit

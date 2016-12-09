@@ -117,7 +117,7 @@ for user in u:
         pu = [[] for i in range(dummylen+1)]
         put = [[] for i in range(dummylen+1)]
         for name in u[user]:
-	    print '@@'+root+name
+	    print '@'+root+name,total
             count = count + 1
             #fin = open(root+name,'r')
             #line = fin.read()
@@ -198,10 +198,6 @@ for user in u:
             if np.array(mt).argmin() == int(result[-1]):
                 mtls = mtls + 1
             if otype == 1:
-                for i in range(4):
-                    for j in result[i][0:-2]:
-                        print j,
-                    print
                 print "mt:",mt
                 print "dl:",dl
                 print "sim:",sim
