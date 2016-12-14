@@ -76,6 +76,7 @@ root = sys.argv[1]
 
 cll = sm.readcll0(sys.argv[2],ukk,stype)
 u = {}
+querytot = set()
 
 for root, dirs, files in os.walk(root):
     for name in files:
@@ -89,6 +90,7 @@ for root, dirs, files in os.walk(root):
             if user not in u:
                 u[user] = set()
             u[user].add(name)
+            querytot.add(name)
 
 
 total = 0
@@ -101,6 +103,12 @@ srp20 = 0
 srp100 = 0
 srp500 = 0
 usernum = 0
+simmax = 0
+simmin = 10
+simavg = 0
+dlmax = 0
+dlmin = 10
+dlavg = 0
 
 dummylen = len(cll.values()[0])
 wam = gp.init("NTCIR")
@@ -193,6 +201,18 @@ for user in u:
                     hit = hit + 1
                 if np.array(sim).argmax() == int(result[-1]):
                     simhit = simhit + 1
+                simr = sim[int(result[-1])]
+                dlr = dl[int(result[-1])]
+                if simr > simmax:
+                    simmax = simr
+                if simr < simmin:
+                    simmin = simr
+                if dlr > dlmax:
+                    dlmax = dlr
+                if dlr < dlmin:
+                    dlmin = dlr
+                simavg = simavg + simr
+                dlavg = dlavg + dlr
             if np.array(mt).argmax() == int(result[-1]):
                 mthit = mthit + 1
             if np.array(mt).argmin() == int(result[-1]):
@@ -210,6 +230,12 @@ for user in u:
 print 'usernum:',usernum
 print 'hit:',hit
 print 'simhit:',simhit
+print 'simmax:',simmax
+print 'simmin:',simmin
+print 'simavg:',simavg / total
+print 'dlmax:',dlmax
+print 'dlmin:',dlmin
+print 'dlavg:',dlavg / total
 print 'mthit:',mthit
 print 'mthls:',mtls
 print 'srp:',srp

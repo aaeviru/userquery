@@ -1,10 +1,10 @@
-2016-12-14 14:12:12.156026
+2016-12-14 14:13:48.433712
 
 topic-folder:/home/ec2-user/data/topics/
-cl-file:/home/ec2-user/git/tfidf/result-new/b1-all.txt
-cl-floder:/home/ec2-user/data/classinfo/
-zipf:0.6
-stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:1
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-3.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.5
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
 dtype[0(diff)/1(same)]:0
 output-floder:/home/ec2-user/git/userquery/result-new
 
@@ -145,3 +145,68 @@ output-floder:/home/ec2-user/git/userquery/result-new
 @/home/ec2-user/data/topics/3943 98
 @/home/ec2-user/data/topics/4633 99
 @/home/ec2-user/data/topics/4767 100
+@/home/ec2-user/data/topics/4346 101
+@/home/ec2-user/data/topics/3671 102
+@/home/ec2-user/data/topics/4658 103
+@/home/ec2-user/data/topics/4617 104
+@/home/ec2-user/data/topics/4008 105
+@/home/ec2-user/data/topics/3699 106
+@/home/ec2-user/data/topics/4920 107
+@/home/ec2-user/data/topics/4064 108
+@/home/ec2-user/data/topics/4144 109
+@/home/ec2-user/data/topics/3731 110
+@/home/ec2-user/data/topics/2111 111
+@/home/ec2-user/data/topics/3587 112
+@/home/ec2-user/data/topics/3481 113
+@/home/ec2-user/data/topics/4030 114
+@/home/ec2-user/data/topics/3356 115
+@/home/ec2-user/data/topics/3405 116
+@/home/ec2-user/data/topics/3725 117
+@/home/ec2-user/data/topics/4543 118
+@/home/ec2-user/data/topics/1551 119
+@/home/ec2-user/data/topics/3783 120
+@/home/ec2-user/data/topics/4298 121
+@/home/ec2-user/data/topics/2218 122
+@/home/ec2-user/data/topics/4426 123
+@/home/ec2-user/data/topics/4647 124
+@/home/ec2-user/data/topics/1494 125
+オリンパス光学工業株式会社
+
+@/home/ec2-user/data/topics/1739 126
+@/home/ec2-user/data/topics/5006 126
+@/home/ec2-user/data/topics/1981 127
+@/home/ec2-user/data/topics/4013 128
+@/home/ec2-user/data/topics/1155 129
+@/home/ec2-user/data/topics/1835 130
+@/home/ec2-user/data/topics/1586 131
+@/home/ec2-user/data/topics/4878 132
+@/home/ec2-user/data/topics/4007 133
+@/home/ec2-user/data/topics/1107 134
+@/home/ec2-user/data/topics/2026 135
+@/home/ec2-user/data/topics/1869 136
+ブラザー工業株式会社
+
+@/home/ec2-user/data/topics/1164 137
+@/home/ec2-user/data/topics/3477 137
+@/home/ec2-user/data/topics/1300 138
+@/home/ec2-user/data/topics/1636 139
+@/home/ec2-user/data/topics/1697 140
+@/home/ec2-user/data/topics/1076 141
+@/home/ec2-user/data/topics/3789 142
+@/home/ec2-user/data/topics/2086 143
+@/home/ec2-user/data/topics/1183 144
+@/home/ec2-user/data/topics/3507 145
+@/home/ec2-user/data/topics/4548 146
+@/home/ec2-user/data/topics/3613 147
+@/home/ec2-user/data/topics/3686 148
+@/home/ec2-user/data/topics/1906 149
+@/home/ec2-user/data/topics/2085 150
+富士通株式会社
+
+@/home/ec2-user/data/topics/3751 151
+@/home/ec2-user/data/topics/3862 151
+@/home/ec2-user/data/topics/1123 152
+@/home/ec2-user/data/topics/1264 153
+@/home/ec2-user/data/topics/1874 154
+@/home/ec2-user/data/topics/3538 155
+@/home/ec2-user/data/topics/3765 156

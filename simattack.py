@@ -183,3 +183,5 @@ print 'hit/total:',hit*1.0/total
 print 'mthit/(total+usernum):',mthit*1.0/(total+usernum)
 print 'mthls/(total+usernum):',mtls*1.0/(total+usernum)
 print 'srp/(total+usernum):',srp*1.0/(total+usernum)
+
+sysf.pend()

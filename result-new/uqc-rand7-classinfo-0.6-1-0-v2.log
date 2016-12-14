@@ -1,4 +1,4 @@
-2016-12-09 18:46:22.483837
+2016-12-10 06:29:23.038612
 topic-folder:/home/ec2-user/data/topics/
 cl-file:rand7
 cl-floder:/home/ec2-user/data/classinfo/
@@ -1786,17 +1786,17 @@ output-floder:/home/ec2-user/git/userquery/result-new
 @/home/ec2-user/data/topics/4012 1560
 @/home/ec2-user/data/topics/3549 1561
 usernum: 72
-hit: 744
-simhit: 1150
-mthit: 1198
-mthls: 9
-srp: 284.086
+hit: 679
+simhit: 1130
+mthit: 1213
+mthls: 5
+srp: 319.114
 total: 1562
-hit/total: 0.476312419974
-simhit/total: 0.736235595391
-mthit/(total+usernum): 0.733170134639
-mthls/(total+usernum): 0.00550795593635
-srp/(total+usernum): 0.0248370344466
-srp20/(total+usernum): 0.00772862388529
-srp100/(total+usernum): 0.0145934603952
-srp500/(total+usernum): 0.0209484175555
+hit/total: 0.434699103713
+simhit/total: 0.723431498079
+mthit/(total+usernum): 0.7423500612
+mthls/(total+usernum): 0.0030599755202
+srp/(total+usernum): 0.0278994579472
+srp20/(total+usernum): 0.00991869207903
+srp100/(total+usernum): 0.0178833712187
+srp500/(total+usernum): 0.0239652037069

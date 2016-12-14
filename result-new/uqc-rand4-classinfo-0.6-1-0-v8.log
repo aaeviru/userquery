@@ -1,6 +1,6 @@
-2016-12-09 18:46:22.483837
+2016-12-11 00:28:23.702472
 topic-folder:/home/ec2-user/data/topics/
-cl-file:rand7
+cl-file:rand4
 cl-floder:/home/ec2-user/data/classinfo/
 zipf:0.6
 stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:1
@@ -1786,17 +1786,23 @@ output-floder:/home/ec2-user/git/userquery/result-new
 @/home/ec2-user/data/topics/4012 1560
 @/home/ec2-user/data/topics/3549 1561
 usernum: 72
-hit: 744
-simhit: 1150
-mthit: 1198
-mthls: 9
-srp: 284.086
+hit: 834
+simhit: 1315
+simmax: 0.663303909206
+simmin: 0.0
+simavg: 0.199379828208
+dlmax: 0.153701590663
+dlmin: 0.00700267590091
+dlavg: 0.0357022094799
+mthit: 1311
+mthls: 13
+srp: 154.41
 total: 1562
-hit/total: 0.476312419974
-simhit/total: 0.736235595391
-mthit/(total+usernum): 0.733170134639
-mthls/(total+usernum): 0.00550795593635
-srp/(total+usernum): 0.0248370344466
-srp20/(total+usernum): 0.00772862388529
-srp100/(total+usernum): 0.0145934603952
-srp500/(total+usernum): 0.0209484175555
+hit/total: 0.533930857875
+simhit/total: 0.841869398207
+mthit/(total+usernum): 0.802325581395
+mthls/(total+usernum): 0.00795593635251
+srp/(total+usernum): 0.0236245410037
+srp20/(total+usernum): 0.0078870869033
+srp100/(total+usernum): 0.013858629131
+srp500/(total+usernum): 0.0197763157895
