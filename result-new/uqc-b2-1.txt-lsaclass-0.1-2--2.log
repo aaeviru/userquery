@@ -1,0 +1,66 @@
+2016-12-20 16:38:56.260400
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.1
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:-2
+output-floder:/home/ec2-user/git/userquery/result-new
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/4915 0
+@/home/ec2-user/data/topics/1638 0
+@/home/ec2-user/data/topics/3520 1
+@/home/ec2-user/data/topics/2150 2
+@/home/ec2-user/data/topics/3866 2
+@/home/ec2-user/data/topics/2093 3
+@/home/ec2-user/data/topics/3546 4
+@/home/ec2-user/data/topics/3470 5
+@/home/ec2-user/data/topics/3630 6
+@/home/ec2-user/data/topics/1085 7
+日本精機株式会社
+
+@/home/ec2-user/data/topics/4972 8
+@/home/ec2-user/data/topics/4907 8
+@/home/ec2-user/data/topics/1398 9
+@/home/ec2-user/data/topics/4875 10
+@/home/ec2-user/data/topics/4709 11
+@/home/ec2-user/data/topics/1111 12
+@/home/ec2-user/data/topics/4690 12
+@/home/ec2-user/data/topics/1472 13
+コニカ株式会社
+
+@/home/ec2-user/data/topics/3426 13
+@/home/ec2-user/data/topics/3419 13
+@/home/ec2-user/data/topics/1766 14
+@/home/ec2-user/data/topics/3533 14
+@/home/ec2-user/data/topics/3357 15
+@/home/ec2-user/data/topics/4396 16
+@/home/ec2-user/data/topics/3431 16
+@/home/ec2-user/data/topics/3486 17
+@/home/ec2-user/data/topics/2162 18
+@/home/ec2-user/data/topics/1712 19
+@/home/ec2-user/data/topics/1946 19
+@/home/ec2-user/data/topics/3370 20
+@/home/ec2-user/data/topics/3414 21
+@/home/ec2-user/data/topics/3418 22
+埼玉日本電気株式会社
+
+@/home/ec2-user/data/topics/4496 23
+@/home/ec2-user/data/topics/1512 23
+@/home/ec2-user/data/topics/2219 24
+@/home/ec2-user/data/topics/5010 24
+@/home/ec2-user/data/topics/4242 25
+@/home/ec2-user/data/topics/3582 26
+@/home/ec2-user/data/topics/4468 26
+@/home/ec2-user/data/topics/4998 27
+@/home/ec2-user/data/topics/4283 28
+@/home/ec2-user/data/topics/1620 29
+@/home/ec2-user/data/topics/4279 30
+アルプス電気株式会社
+
+@/home/ec2-user/data/topics/4791 31
+@/home/ec2-user/data/topics/3675 31
+@/home/ec2-user/data/topics/3429 31

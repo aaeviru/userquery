@@ -1,0 +1,65 @@
+2016-12-20 16:39:09.935223
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.1
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:-5
+output-floder:/home/ec2-user/git/userquery/result-new
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/3520 0
+@/home/ec2-user/data/topics/3470 0
+@/home/ec2-user/data/topics/3866 1
+@/home/ec2-user/data/topics/3546 2
+@/home/ec2-user/data/topics/3911 3
+@/home/ec2-user/data/topics/1638 3
+@/home/ec2-user/data/topics/4730 4
+@/home/ec2-user/data/topics/1085 4
+@/home/ec2-user/data/topics/2093 5
+@/home/ec2-user/data/topics/4250 6
+@/home/ec2-user/data/topics/1700 6
+@/home/ec2-user/data/topics/3630 6
+日本精機株式会社
+
+@/home/ec2-user/data/topics/1014 7
+@/home/ec2-user/data/topics/4875 7
+@/home/ec2-user/data/topics/1398 8
+@/home/ec2-user/data/topics/4690 9
+@/home/ec2-user/data/topics/4907 10
+@/home/ec2-user/data/topics/4972 11
+@/home/ec2-user/data/topics/4709 12
+@/home/ec2-user/data/topics/1262 13
+@/home/ec2-user/data/topics/1047 13
+コニカ株式会社
+
+@/home/ec2-user/data/topics/3431 13
+@/home/ec2-user/data/topics/4539 13
+@/home/ec2-user/data/topics/3893 13
+@/home/ec2-user/data/topics/1108 13
+@/home/ec2-user/data/topics/1454 13
+@/home/ec2-user/data/topics/3357 13
+@/home/ec2-user/data/topics/3486 14
+@/home/ec2-user/data/topics/3426 15
+@/home/ec2-user/data/topics/3414 16
+@/home/ec2-user/data/topics/2162 17
+@/home/ec2-user/data/topics/1946 18
+@/home/ec2-user/data/topics/3418 19
+@/home/ec2-user/data/topics/3370 20
+@/home/ec2-user/data/topics/4291 21
+@/home/ec2-user/data/topics/3419 21
+@/home/ec2-user/data/topics/3533 22
+@/home/ec2-user/data/topics/4498 23
+埼玉日本電気株式会社
+
+@/home/ec2-user/data/topics/4012 23
+@/home/ec2-user/data/topics/4279 23
+@/home/ec2-user/data/topics/4468 24
+@/home/ec2-user/data/topics/4719 25
+@/home/ec2-user/data/topics/4283 25
+@/home/ec2-user/data/topics/1620 26
+@/home/ec2-user/data/topics/3621 27
+@/home/ec2-user/data/topics/4446 27
+@/home/ec2-user/data/topics/4242 27

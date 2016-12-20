@@ -1,0 +1,17 @@
+2016-12-20 16:46:30.381380
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-1.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.1
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:0
+output-floder:/home/ec2-user/git/userquery/result-new
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/3470 0
+@/home/ec2-user/data/topics/1085 0
+@/home/ec2-user/data/topics/3546 1
+@/home/ec2-user/data/topics/1638 2
+@/home/ec2-user/data/topics/3866 3

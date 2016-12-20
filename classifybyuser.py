@@ -5,6 +5,7 @@ import os
 import sys
 import math
 import re
+import random
 from os import path
 from scipy import spatial
 import numpy as np
@@ -16,7 +17,7 @@ from pythonlib import crand
 from pythonlib import getapy as gp
 from pythonlib import attack
 
-inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[0(diff)/1(same)],output-floder"
+inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)],output-floder"
 
 if len(sys.argv) != 8:
     print "input:" + inputform
@@ -75,8 +76,12 @@ if stype == 3:
 root = sys.argv[1]
 
 cll = sm.readcll0(sys.argv[2],ukk,stype)
+
+if len(cll) != ukk:
+    ukk = len(cll)
+    b = b[:ukk]
 u = {}
-querytot = set()
+querytot = []
 
 for root, dirs, files in os.walk(root):
     for name in files:
@@ -88,9 +93,9 @@ for root, dirs, files in os.walk(root):
             cl = re.search(r'【出願人】.【識別番号】.*?【氏名又は名称】(.*?)【',temp,re.DOTALL)
             user = cl.group(1)
             if user not in u:
-                u[user] = set()
-            u[user].add(name)
-            querytot.add(name)
+                u[user] = []
+            u[user].append((name,0))
+            querytot.append(name)
 
 
 total = 0
@@ -110,6 +115,16 @@ dlmax = 0
 dlmin = 10
 dlavg = 0
 
+for user in u:
+    if len(u[user]) > 5:
+        tmpuser = []
+        while len(tmpuser) < -1.0 * dtype * 0.1 * len(u[user]):
+            du = random.randint(0,len(querytot)-1)
+            if (querytot[du],0) not in u[user]:
+                tmpuser.append((querytot[du],1))
+        u[user] = u[user] + tmpuser
+        random.shuffle(u[user])
+
 dummylen = len(cll.values()[0])
 wam = gp.init("NTCIR")
 getar = gp.intp(1000)
@@ -124,7 +139,7 @@ for user in u:
         vecut = [np.zeros(ukk) for i in range(dummylen+1)]
         pu = [[] for i in range(dummylen+1)]
         put = [[] for i in range(dummylen+1)]
-        for name in u[user]:
+        for (name,real) in u[user]:
 	    print '@'+root+name,total
             count = count + 1
             #fin = open(root+name,'r')
@@ -195,29 +210,31 @@ for user in u:
                 pu[i] = put[i]
                 vec[i] = vect[i]        
                 vecu[i] = vecut[i]
-            if count > 1:
-                total = total +1
-                if dl.argmin() == int(result[-1]):
-                    hit = hit + 1
-                if np.array(sim).argmax() == int(result[-1]):
-                    simhit = simhit + 1
-                simr = sim[int(result[-1])]
-                dlr = dl[int(result[-1])]
-                if simr > simmax:
-                    simmax = simr
-                if simr < simmin:
-                    simmin = simr
-                if dlr > dlmax:
-                    dlmax = dlr
-                if dlr < dlmin:
-                    dlmin = dlr
-                simavg = simavg + simr
-                dlavg = dlavg + dlr
-            if np.array(mt).argmax() == int(result[-1]):
-                mthit = mthit + 1
-            if np.array(mt).argmin() == int(result[-1]):
-                mtls = mtls + 1
+            if real == 0:
+                if count > 1:
+                    total = total +1
+                    if dl.argmin() == int(result[-1]):
+                        hit = hit + 1
+                    if np.array(sim).argmax() == int(result[-1]):
+                        simhit = simhit + 1
+                    simr = sim[int(result[-1])]
+                    dlr = dl[int(result[-1])]
+                    if simr > simmax:
+                        simmax = simr
+                    if simr < simmin:
+                        simmin = simr
+                    if dlr > dlmax:
+                        dlmax = dlr
+                    if dlr < dlmin:
+                        dlmin = dlr
+                    simavg = simavg + simr
+                    dlavg = dlavg + dlr
+                if np.array(mt).argmax() == int(result[-1]):
+                    mthit = mthit + 1
+                if np.array(mt).argmin() == int(result[-1]):
+                    mtls = mtls + 1
             if otype == 1:
+                print "real",real
                 print "mt:",mt
                 print "dl:",dl
                 print "sim:",sim
@@ -248,3 +265,5 @@ print 'srp/(total+usernum):',srp*1.0/(total+usernum)/dummylen
 print 'srp20/(total+usernum):',srp20*1.0/(total+usernum)/dummylen
 print 'srp100/(total+usernum):',srp100*1.0/(total+usernum)/dummylen
 print 'srp500/(total+usernum):',srp500*1.0/(total+usernum)/dummylen
+
+sysf.pend()

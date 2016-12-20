@@ -1,0 +1,65 @@
+2016-12-20 16:39:45.375129
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:/home/ec2-user/git/tfidf/result-new/b2-3.txt
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.1
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:-2
+output-floder:/home/ec2-user/git/userquery/result-new
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/3470 0
+@/home/ec2-user/data/topics/3546 0
+@/home/ec2-user/data/topics/3630 1
+@/home/ec2-user/data/topics/2093 2
+@/home/ec2-user/data/topics/3570 3
+@/home/ec2-user/data/topics/1638 3
+@/home/ec2-user/data/topics/1085 4
+@/home/ec2-user/data/topics/3866 5
+@/home/ec2-user/data/topics/3520 6
+@/home/ec2-user/data/topics/1434 7
+日本精機株式会社
+
+@/home/ec2-user/data/topics/4875 7
+@/home/ec2-user/data/topics/4690 7
+@/home/ec2-user/data/topics/4907 8
+@/home/ec2-user/data/topics/1398 9
+@/home/ec2-user/data/topics/4111 10
+@/home/ec2-user/data/topics/3712 10
+@/home/ec2-user/data/topics/4709 10
+@/home/ec2-user/data/topics/4972 11
+コニカ株式会社
+
+@/home/ec2-user/data/topics/3419 12
+@/home/ec2-user/data/topics/2162 12
+@/home/ec2-user/data/topics/3357 13
+@/home/ec2-user/data/topics/3370 14
+@/home/ec2-user/data/topics/1877 15
+@/home/ec2-user/data/topics/3418 15
+@/home/ec2-user/data/topics/3533 16
+@/home/ec2-user/data/topics/3414 17
+@/home/ec2-user/data/topics/1687 18
+@/home/ec2-user/data/topics/1132 18
+@/home/ec2-user/data/topics/1946 18
+@/home/ec2-user/data/topics/3486 19
+@/home/ec2-user/data/topics/3431 20
+@/home/ec2-user/data/topics/3426 21
+埼玉日本電気株式会社
+
+@/home/ec2-user/data/topics/3807 22
+@/home/ec2-user/data/topics/4283 22
+@/home/ec2-user/data/topics/1512 23
+@/home/ec2-user/data/topics/4242 24
+@/home/ec2-user/data/topics/4496 25
+@/home/ec2-user/data/topics/1620 26
+@/home/ec2-user/data/topics/4279 27
+@/home/ec2-user/data/topics/4998 28
+@/home/ec2-user/data/topics/4651 29
+@/home/ec2-user/data/topics/4468 29
+@/home/ec2-user/data/topics/5010 30
+アルプス電気株式会社
+
+@/home/ec2-user/data/topics/1434 31
+@/home/ec2-user/data/topics/2089 31
