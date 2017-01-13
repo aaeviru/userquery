@@ -1,0 +1,17 @@
+2017-01-06 23:06:33.998471
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand
+cl-floder:/home/ec2-user/data/classinfo/
+zipf:0.1
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:1
+output-floder:result-new/
+
+Traceback (most recent call last):
+  File "simattack3.py", line 44, in <module>
+    a = np.load('/home/ec2-user/data/classinfo/vt.npy')#lsa result
+  File "/usr/lib64/python2.7/dist-packages/numpy/lib/npyio.py", line 382, in load
+    return format.read_array(fid)
+  File "/usr/lib64/python2.7/dist-packages/numpy/lib/format.py", line 453, in read_array
+    array = numpy.fromfile(fp, dtype=dtype, count=count)
+MemoryError

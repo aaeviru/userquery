@@ -149,7 +149,7 @@ for user in u:
             #print title.group(1)
             #print cl.group(2)
             if dtype == 1:
-              result = sm.dg5(root+name,sys.argv[3],dummylen,b,s,wtolu,ukk,stype)  
+              result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)  
             elif count == 1 or type(zipf) == float and zipf < 1:
                 if stype == 3 and type(zipf) == float and zipf < 0:
                     result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)

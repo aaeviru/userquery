@@ -1,0 +1,262 @@
+2016-12-22 14:58:09.199566
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand
+cl-floder:/home/ec2-user/data/classinfo/
+zipf:0.4
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:1
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:1
+output-floder:/home/ec2-user/git/userquery/result
+
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/2093 0
+@/home/ec2-user/data/topics/3546 0
+@/home/ec2-user/data/topics/1085 1
+@/home/ec2-user/data/topics/3630 2
+@/home/ec2-user/data/topics/3520 3
+@/home/ec2-user/data/topics/3866 4
+@/home/ec2-user/data/topics/3470 5
+@/home/ec2-user/data/topics/1638 6
+日本精機株式会社
+
+@/home/ec2-user/data/topics/4972 7
+@/home/ec2-user/data/topics/4709 7
+@/home/ec2-user/data/topics/1398 8
+@/home/ec2-user/data/topics/4690 9
+@/home/ec2-user/data/topics/4907 10
+@/home/ec2-user/data/topics/4875 11
+コニカ株式会社
+
+@/home/ec2-user/data/topics/1946 12
+@/home/ec2-user/data/topics/3533 12
+@/home/ec2-user/data/topics/2162 13
+@/home/ec2-user/data/topics/3419 14
+@/home/ec2-user/data/topics/3431 15
+@/home/ec2-user/data/topics/3418 16
+@/home/ec2-user/data/topics/3426 17
+@/home/ec2-user/data/topics/3414 18
+@/home/ec2-user/data/topics/3357 19
+@/home/ec2-user/data/topics/3370 20
+@/home/ec2-user/data/topics/3486 21
+埼玉日本電気株式会社
+
+@/home/ec2-user/data/topics/4496 22
+@/home/ec2-user/data/topics/4468 22
+@/home/ec2-user/data/topics/1512 23
+@/home/ec2-user/data/topics/4242 24
+@/home/ec2-user/data/topics/1620 25
+@/home/ec2-user/data/topics/5010 26
+@/home/ec2-user/data/topics/4998 27
+@/home/ec2-user/data/topics/4279 28
+@/home/ec2-user/data/topics/4283 29
+アルプス電気株式会社
+
+@/home/ec2-user/data/topics/3582 30
+@/home/ec2-user/data/topics/2089 30
+@/home/ec2-user/data/topics/1253 31
+@/home/ec2-user/data/topics/1434 32
+@/home/ec2-user/data/topics/2012 33
+@/home/ec2-user/data/topics/4791 34
+@/home/ec2-user/data/topics/3429 35
+三菱重工業株式会社
+
+@/home/ec2-user/data/topics/3944 36
+@/home/ec2-user/data/topics/3591 36
+@/home/ec2-user/data/topics/3529 37
+@/home/ec2-user/data/topics/4862 38
+@/home/ec2-user/data/topics/4412 39
+@/home/ec2-user/data/topics/3637 40
+@/home/ec2-user/data/topics/3833 41
+@/home/ec2-user/data/topics/3503 42
+@/home/ec2-user/data/topics/4882 43
+@/home/ec2-user/data/topics/5022 44
+@/home/ec2-user/data/topics/4687 45
+@/home/ec2-user/data/topics/4563 46
+村田機械株式会社
+
+@/home/ec2-user/data/topics/4565 47
+@/home/ec2-user/data/topics/4570 47
+@/home/ec2-user/data/topics/4441 48
+@/home/ec2-user/data/topics/1607 49
+@/home/ec2-user/data/topics/1074 50
+@/home/ec2-user/data/topics/4638 51
+@/home/ec2-user/data/topics/4596 52
+@/home/ec2-user/data/topics/4746 53
+@/home/ec2-user/data/topics/4941 54
+@/home/ec2-user/data/topics/4835 55
+@/home/ec2-user/data/topics/5000 56
+@/home/ec2-user/data/topics/1293 57
+@/home/ec2-user/data/topics/4556 58
+@/home/ec2-user/data/topics/4645 59
+@/home/ec2-user/data/topics/3740 60
+@/home/ec2-user/data/topics/3528 61
+@/home/ec2-user/data/topics/1511 62
+川崎製鉄株式会社
+
+@/home/ec2-user/data/topics/3532 63
+@/home/ec2-user/data/topics/3929 63
+@/home/ec2-user/data/topics/1459 64
+@/home/ec2-user/data/topics/3611 65
+@/home/ec2-user/data/topics/4615 66
+@/home/ec2-user/data/topics/3553 67
+@/home/ec2-user/data/topics/3483 68
+@/home/ec2-user/data/topics/1037 69
+@/home/ec2-user/data/topics/3413 70
+ダイキン工業株式会社
+
+@/home/ec2-user/data/topics/1565 71
+@/home/ec2-user/data/topics/3888 71
+@/home/ec2-user/data/topics/1600 72
+@/home/ec2-user/data/topics/4858 73
+@/home/ec2-user/data/topics/4734 74
+@/home/ec2-user/data/topics/4753 75
+@/home/ec2-user/data/topics/4515 76
+@/home/ec2-user/data/topics/4701 77
+@/home/ec2-user/data/topics/4367 78
+@/home/ec2-user/data/topics/4400 79
+@/home/ec2-user/data/topics/4845 80
+三菱自動車工業株式会社
+
+@/home/ec2-user/data/topics/1816 81
+@/home/ec2-user/data/topics/3502 81
+@/home/ec2-user/data/topics/2101 82
+@/home/ec2-user/data/topics/1527 83
+@/home/ec2-user/data/topics/3940 84
+@/home/ec2-user/data/topics/3815 85
+@/home/ec2-user/data/topics/1428 86
+@/home/ec2-user/data/topics/4189 87
+日産自動車株式会社
+
+@/home/ec2-user/data/topics/3723 88
+@/home/ec2-user/data/topics/3497 88
+@/home/ec2-user/data/topics/4074 89
+@/home/ec2-user/data/topics/3489 90
+@/home/ec2-user/data/topics/3677 91
+@/home/ec2-user/data/topics/3712 92
+@/home/ec2-user/data/topics/4982 93
+@/home/ec2-user/data/topics/3501 94
+@/home/ec2-user/data/topics/3645 95
+@/home/ec2-user/data/topics/3829 96
+@/home/ec2-user/data/topics/3936 97
+トヨタ自動車株式会社
+
+@/home/ec2-user/data/topics/4647 98
+@/home/ec2-user/data/topics/3405 98
+@/home/ec2-user/data/topics/4658 99
+@/home/ec2-user/data/topics/1494 100
+@/home/ec2-user/data/topics/3356 101
+@/home/ec2-user/data/topics/3587 102
+@/home/ec2-user/data/topics/4030 103
+@/home/ec2-user/data/topics/4298 104
+@/home/ec2-user/data/topics/3943 105
+@/home/ec2-user/data/topics/4920 106
+@/home/ec2-user/data/topics/3699 107
+@/home/ec2-user/data/topics/4543 108
+@/home/ec2-user/data/topics/3731 109
+@/home/ec2-user/data/topics/4633 110
+@/home/ec2-user/data/topics/4064 111
+@/home/ec2-user/data/topics/2111 112
+@/home/ec2-user/data/topics/2218 113
+@/home/ec2-user/data/topics/1551 114
+@/home/ec2-user/data/topics/4346 115
+@/home/ec2-user/data/topics/3725 116
+@/home/ec2-user/data/topics/4767 117
+@/home/ec2-user/data/topics/3758 118
+@/home/ec2-user/data/topics/4617 119
+@/home/ec2-user/data/topics/3671 120
+@/home/ec2-user/data/topics/4144 121
+@/home/ec2-user/data/topics/4426 122
+@/home/ec2-user/data/topics/3783 123
+@/home/ec2-user/data/topics/4008 124
+@/home/ec2-user/data/topics/3481 125
+オリンパス光学工業株式会社
+
+@/home/ec2-user/data/topics/4013 126
+@/home/ec2-user/data/topics/5006 126
+@/home/ec2-user/data/topics/4007 127
+@/home/ec2-user/data/topics/1586 128
+@/home/ec2-user/data/topics/1107 129
+@/home/ec2-user/data/topics/1869 130
+@/home/ec2-user/data/topics/1981 131
+@/home/ec2-user/data/topics/4878 132
+@/home/ec2-user/data/topics/1155 133
+@/home/ec2-user/data/topics/1739 134
+@/home/ec2-user/data/topics/2026 135
+@/home/ec2-user/data/topics/1835 136
+ブラザー工業株式会社
+
+@/home/ec2-user/data/topics/1300 137
+@/home/ec2-user/data/topics/3686 137
+@/home/ec2-user/data/topics/1183 138
+@/home/ec2-user/data/topics/1164 139
+@/home/ec2-user/data/topics/1906 140
+@/home/ec2-user/data/topics/3613 141
+@/home/ec2-user/data/topics/3507 142
+@/home/ec2-user/data/topics/2086 143
+@/home/ec2-user/data/topics/3789 144
+@/home/ec2-user/data/topics/1636 145
+@/home/ec2-user/data/topics/1697 146
+@/home/ec2-user/data/topics/4548 147
+@/home/ec2-user/data/topics/3477 148
+@/home/ec2-user/data/topics/2085 149
+@/home/ec2-user/data/topics/1076 150
+富士通株式会社
+
+@/home/ec2-user/data/topics/3846 151
+@/home/ec2-user/data/topics/3381 151
+@/home/ec2-user/data/topics/3751 152
+@/home/ec2-user/data/topics/1264 153
+@/home/ec2-user/data/topics/3850 154
+@/home/ec2-user/data/topics/1547 155
+@/home/ec2-user/data/topics/5004 156
+@/home/ec2-user/data/topics/3399 157
+@/home/ec2-user/data/topics/3636 158
+@/home/ec2-user/data/topics/3765 159
+@/home/ec2-user/data/topics/4191 160
+@/home/ec2-user/data/topics/3870 161
+@/home/ec2-user/data/topics/1609 162
+@/home/ec2-user/data/topics/3970 163
+@/home/ec2-user/data/topics/3428 164
+@/home/ec2-user/data/topics/3962 165
+@/home/ec2-user/data/topics/1123 166
+@/home/ec2-user/data/topics/2215 167
+@/home/ec2-user/data/topics/3883 168
+@/home/ec2-user/data/topics/3802 169
+@/home/ec2-user/data/topics/3912 170
+@/home/ec2-user/data/topics/2227 171
+@/home/ec2-user/data/topics/3538 172
+@/home/ec2-user/data/topics/1998 173
+@/home/ec2-user/data/topics/3799 174
+@/home/ec2-user/data/topics/2216 175
+@/home/ec2-user/data/topics/1874 176
+@/home/ec2-user/data/topics/3460 177
+@/home/ec2-user/data/topics/1271 178
+@/home/ec2-user/data/topics/3400 179
+@/home/ec2-user/data/topics/3749 180
+@/home/ec2-user/data/topics/3862 181
+静岡日本電気株式会社
+
+@/home/ec2-user/data/topics/4250 182
+@/home/ec2-user/data/topics/4531 182
+@/home/ec2-user/data/topics/4507 183
+@/home/ec2-user/data/topics/4326 184
+@/home/ec2-user/data/topics/4365 185
+@/home/ec2-user/data/topics/4314 186
+住友重機械工業株式会社
+
+@/home/ec2-user/data/topics/4854 187
+@/home/ec2-user/data/topics/1505 187
+@/home/ec2-user/data/topics/3868 188
+@/home/ec2-user/data/topics/2039 189
+@/home/ec2-user/data/topics/1019 190
+@/home/ec2-user/data/topics/1900 191
+@/home/ec2-user/data/topics/3952 192
+@/home/ec2-user/data/topics/1553 193
+@/home/ec2-user/data/topics/1373 194
+大日本印刷株式会社
+
+@/home/ec2-user/data/topics/3388 195
+@/home/ec2-user/data/topics/1564 195
+@/home/ec2-user/data/topics/3569 196
+@/home/ec2-user/data/topics/1262 197
