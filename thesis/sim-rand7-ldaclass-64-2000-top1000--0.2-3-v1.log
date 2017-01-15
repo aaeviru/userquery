@@ -1,0 +1,16 @@
+2017-01-15 16:42:09.091857
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand7
+cl-floder:/home/ec2-user/data/ldaclass-64-2000-top1000/
+zipf:-0.2
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:3
+output-floder:thesis/
+
+コニカ株式会社
+
+@/home/ec2-user/data/topics/3414
+Traceback (most recent call last):
+  File "simattack3.py", line 103, in <module>
+    for line in lines:
+NameError: name 'lines' is not defined

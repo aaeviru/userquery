@@ -15,6 +15,7 @@ from pythonlib import semantic as sm
 from pythonlib import attack
 from pythonlib import sysf
 from pythonlib import crand
+from pythonlib import getapy as gp
 
 inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
 
@@ -89,7 +90,16 @@ hit = 0
 mthit = 0
 mtls = 0
 usernum = 0
+intersetsize = 0.0
 dummylen = len(cll.values()[0])
+wam = gp.init("NTCIR")
+getar = gp.intp(1000)
+srp20 = 0
+srp100 = 0
+srp500 = 0
+srp1000 = 0
+
+
 
 for user in u:
     if len(u[user]) > 10:
@@ -124,7 +134,7 @@ for user in u:
                     nn = nn + 1
                     if nn >= 3:
                         break
-            if count < 3:
+            if count < 4:
                 pu.append([line.strip('\n') for line in lines])
             else:
                 #result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)
@@ -135,59 +145,24 @@ for user in u:
                 total = total +1
                 if np.array(sim).argmax() == int(result[-1]):
                     hit = hit + 1
-                if otype == 1:
-                    for i in pu:
-                        for j in i:
-                            print j,
-                        print
-                    print
-                    for i in range(dummylen+1):
-                        print i,
-                        for j in result[i][0:]:
-                            print j,
-                        print
-                    print "sim:",sim
-                    print result[-1]
-                    print "hit:"+str(hit)," total:"+str(total)
-        si = sorted(inter.items(), key=operator.itemgetter(1))
-        si.reverse()
-        nn = 0
-        mm = si[0][1]
-        inter = []
-        for i in si:
-            if i[1] == mm:
-                inter.append(i[0])
-            elif i[1] < mm:
-                inter.append(i[0])
-                mm = i[1]
-                nn = nn + 1
-                if nn >= 10:
-                    break
-        for i in inter:
-            print i
+                srlen = gp.search(wam,list(result[int(result[-1])]),getar,1000)
+                rqn = np.array([getar[i] for i in range(srlen)])
+		srlen = gp.search(wam,list(attack.sis(result[int(result[-1])],pu)),getar,1000)
+                dqn = np.array([getar[i] for i in range(srlen)])
+                srp20 = srp20 + len(np.intersect1d(rqn[0:20],dqn[2:20]))*1.0/20.0
+		srp100 = srp100 + len(np.intersect1d(rqn[0:100],dqn[0:100]))*1.0/100.0
+		srp500 = srp500 + len(np.intersect1d(rqn[0:500],dqn[0:500]))*1.0/500.0
+		srp1000 = srp1000 + len(np.intersect1d(rqn,dqn))*1.0/len(rqn)
+                print srp20/total,srp100/total,srp500/total,srp1000/total
 
-        
-        jj = 0
-        ql = 0
-        for name in u[user]:
-            
-            fin  = open(root+name+'.txt','r')
-            lines = fin.readlines()
-            fin.close()
-            ql = ql + len(lines)
-            for line in lines:
-                line = line.strip('\n')
-                if line in inter:
-                    jj = jj +1
-        print jj*1.0/len(u[user])
-        print ql*1.0/len(u[user])
-        print jj*1.0/ql
 
-        #raw_input()
+
+                intersetsize = intersetsize + len(attack.sis(result[int(result[-1])],pu))/1.0/len(result[1])
 
 print 'usernum:',usernum
 print 'hit:',hit
 print 'total:',total
 print 'hit/total:',hit*1.0/total
+print 'intersetsize/total',intersetsize/total
 
 sysf.pend()

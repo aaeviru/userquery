@@ -1,0 +1,20 @@
+2017-01-14 02:07:54.733018
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand4
+cl-floder:/home/ec2-user/data/ldaclass-64-2000-top1000/
+zipf:0.2
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:1
+atype[1(tfidf)/2(lsa)/3(lda)]:2
+output-floder:result/
+
+科研製薬株式会社
+
+@/home/ec2-user/data/topics/1023 0
+Traceback (most recent call last):
+  File "mtatt.py", line 144, in <module>
+    result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)  
+  File "/home/ec2-user/git/pythonlib/semantic.py", line 463, in dg5
+    fcl = open(clf,'r')
+IOError: [Errno 2] No such file or directory: '/home/ec2-user/data/ldaclass-64-2000-top1000//583'

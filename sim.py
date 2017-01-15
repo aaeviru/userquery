@@ -117,7 +117,7 @@ for user in u:
         for (name,real) in u[user]:
 	    print '@'+root+name,total
             count = count + 1
-	    if stype == 3 and type(zipf) == float and zipf < 0:
+	    if stype == 3 and zipf < 0:
 		result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
 	    else:
 		result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
@@ -158,7 +158,6 @@ print 'simmax:',simmax
 print 'simmin:',simmin
 print 'simavg:',simavg / total
 print 'total:',total
-print 'hit/total:',hit*1.0/total
 print 'simhit/total:',simhit*1.0/total
 
 sysf.pend()
