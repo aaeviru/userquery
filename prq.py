@@ -23,7 +23,7 @@ if len(sys.argv) != 9:
     print "input:" + inputform
     sys.exit(1)
 
-outf = sys.argv[-1]+'/mt-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
+outf = sys.argv[-1]+'/prq-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
 fout = sysf.logger(outf,inputform)
 
 def vecof(lines,a,wtol,kk):
@@ -155,19 +155,19 @@ for user in u:
         for i in range(0,len(result)-1):
             if atype == 2:
                 vec = sm.vecof(result[i],a,wtola,akk)
+                vec = vec.max()
             elif atype == 3:
-                vec = sm.vecof3(result[i],a,sa,wtola,akk)
-            mt.append(vec.max())
-            t.append(vec.argmax())
+                vec = sm.prq(result[i],a,sa,wtola,akk)
+            mt.append(vec)
         total = total +1
         if np.array(mt).argmax() == int(result[-1]):
             mthit = mthit + 1
         if np.array(mt).argmin() == int(result[-1]):
             mtls = mtls + 1
-        if otype == 1:
-            print "mt:",mt
-            print result[-1]
-            print "mthit:"+str(mthit)," mtls:"+str(mtls)," total:"+str(total)
+        #if otype == 1:
+         #   print "mt:",mt
+          #  print result[-1]
+           # print "mthit:"+str(mthit)," mtls:"+str(mtls)," total:"+str(total)
 
 
 print 'usernum:',usernum
