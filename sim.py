@@ -70,7 +70,8 @@ cll = sm.readcll0(sys.argv[2],ukk,stype)
 
 if len(cll) != ukk:
     ukk = len(cll)
-    b = b[:ukk]
+    if b != None:
+        b = b[:ukk]
 u = {}
 querytot = []
 
@@ -117,7 +118,9 @@ for user in u:
         for (name,real) in u[user]:
 	    print '@'+root+name,total
             count = count + 1
-	    if stype == 3 and zipf < 0:
+            if dtype == 1:
+                result = sm.dg7(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)
+            elif stype == 3 and zipf < 0:
 		result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
 	    else:
 		result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
@@ -125,14 +128,14 @@ for user in u:
             sim = np.array([0.0 for i in range(0,len(result)-1)])
 	    for i in range(0,len(result)-1):
                 if count == 1:
-                    put[i].append(result[i][0:-2])
+                    put[i].append(result[i])
 		else:
                     for j in range(0,len(result)-1):
                         simt = attack.simatt(result[i],pu[j])
                         if (simt>sim[i]):
                             sim[i] = simt
                             put[i] = pu[j]
-                    put[i].append(result[i][0:-2])
+                    put[i].append(result[i][0])
             for i in range(0,len(result)-1):
                 pu[i] = put[i]
             if real == 0:

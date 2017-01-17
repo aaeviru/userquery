@@ -93,7 +93,8 @@ cll = sm.readcll0(sys.argv[2],ukk,stype)
 
 if len(cll) != ukk:
     ukk = len(cll)
-    b = b[:ukk]
+    if b != None:
+        b = b[:ukk]
 u = {}
 querytot = []
 

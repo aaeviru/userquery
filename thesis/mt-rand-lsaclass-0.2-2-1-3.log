@@ -1,0 +1,335 @@
+2017-01-17 22:33:54.134984
+
+topic-folder:/home/ec2-user/data/topics/
+cl-file:rand
+cl-floder:/home/ec2-user/data/lsaclass/
+zipf:0.2
+stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)]:2
+dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)]:1
+atype[1(tfidf)/2(lsa)/3(lda)]:3
+output-floder:thesis/
+
+科研製薬株式会社
+
+@/home/ec2-user/data/topics/1023 0
+日本コロムビア株式会社
+
+@/home/ec2-user/data/topics/1489 1
+早木  靖法
+
+@/home/ec2-user/data/topics/1729 2
+有限会社  はっとり・メディカル・サービス
+
+@/home/ec2-user/data/topics/1024 3
+古谷  正美
+
+@/home/ec2-user/data/topics/1689 4
+株式会社ユー・ピー・シー
+
+@/home/ec2-user/data/topics/1703 5
+斉藤  清邦
+
+@/home/ec2-user/data/topics/1727 6
+三菱マテリアル株式会社
+
+@/home/ec2-user/data/topics/3630 7
+@/home/ec2-user/data/topics/3470 8
+@/home/ec2-user/data/topics/1085 9
+@/home/ec2-user/data/topics/2093 10
+@/home/ec2-user/data/topics/3520 11
+@/home/ec2-user/data/topics/3866 12
+@/home/ec2-user/data/topics/1638 13
+@/home/ec2-user/data/topics/3546 14
+山本電気株式会社
+
+@/home/ec2-user/data/topics/4444 15
+株式会社屋根技術研究所
+
+@/home/ec2-user/data/topics/2154 16
+株式会社九州エレクトロニクスシステム
+
+@/home/ec2-user/data/topics/1450 17
+株式会社スーパーシリコン研究所
+
+@/home/ec2-user/data/topics/1678 18
+株式会社東陽テクニカ
+
+@/home/ec2-user/data/topics/2220 19
+日置電機株式会社
+
+@/home/ec2-user/data/topics/2225 20
+@/home/ec2-user/data/topics/1461 21
+中松  義郎
+
+@/home/ec2-user/data/topics/1057 22
+三省電機株式会社
+
+@/home/ec2-user/data/topics/3512 23
+日立化成ポリマー株式会社
+
+@/home/ec2-user/data/topics/1395 24
+株式会社パイロット
+
+@/home/ec2-user/data/topics/4435 25
+住友ベークライト株式会社
+
+@/home/ec2-user/data/topics/4223 26
+@/home/ec2-user/data/topics/4198 27
+@/home/ec2-user/data/topics/3728 28
+愛知製鋼株式会社
+
+@/home/ec2-user/data/topics/1492 29
+日本電産シバウラ株式会社
+
+@/home/ec2-user/data/topics/4716 30
+株式会社富士通ゼネラル
+
+@/home/ec2-user/data/topics/3365 31
+@/home/ec2-user/data/topics/2102 32
+@/home/ec2-user/data/topics/3448 33
+株式会社イナックス
+
+@/home/ec2-user/data/topics/1772 34
+@/home/ec2-user/data/topics/2018 35
+@/home/ec2-user/data/topics/1572 36
+@/home/ec2-user/data/topics/1299 37
+東光株式会社
+
+@/home/ec2-user/data/topics/2149 38
+@/home/ec2-user/data/topics/4091 39
+@/home/ec2-user/data/topics/3984 40
+株式会社平和
+
+@/home/ec2-user/data/topics/1506 41
+@/home/ec2-user/data/topics/4686 42
+ダイソー株式会社
+
+@/home/ec2-user/data/topics/2178 43
+株式会社ジオクト
+
+@/home/ec2-user/data/topics/1469 44
+ジ−エス・メルコテック株式会社
+
+@/home/ec2-user/data/topics/4724 45
+株式会社三技協
+
+@/home/ec2-user/data/topics/1597 46
+黒木  月光
+
+@/home/ec2-user/data/topics/1111 47
+石▲崎▼  重道
+
+@/home/ec2-user/data/topics/4752 48
+森  偉明
+
+@/home/ec2-user/data/topics/1053 49
+浦項産業科学研究院長
+
+@/home/ec2-user/data/topics/1035 50
+東洋電装株式会社
+
+@/home/ec2-user/data/topics/1742 51
+株式会社ケーブイケー
+
+@/home/ec2-user/data/topics/1788 52
+@/home/ec2-user/data/topics/1121 53
+防衛庁技術研究本部長
+
+@/home/ec2-user/data/topics/1139 54
+@/home/ec2-user/data/topics/4859 55
+株式会社ミクニ
+
+@/home/ec2-user/data/topics/2083 56
+住友電装株式会社
+
+@/home/ec2-user/data/topics/4170 57
+@/home/ec2-user/data/topics/4415 58
+@/home/ec2-user/data/topics/4635 59
+@/home/ec2-user/data/topics/4407 60
+@/home/ec2-user/data/topics/4268 61
+ダイハツ工業株式会社
+
+@/home/ec2-user/data/topics/1828 62
+@/home/ec2-user/data/topics/4255 63
+@/home/ec2-user/data/topics/1335 64
+日本ゼオン株式会社
+
+@/home/ec2-user/data/topics/3559 65
+カナレ電気株式会社
+
+@/home/ec2-user/data/topics/4028 66
+株式会社コナミコンピュータエンタテインメント大阪
+
+@/home/ec2-user/data/topics/1972 67
+@/home/ec2-user/data/topics/1839 68
+東レ株式会社
+
+@/home/ec2-user/data/topics/1038 69
+@/home/ec2-user/data/topics/3696 70
+@/home/ec2-user/data/topics/1416 71
+@/home/ec2-user/data/topics/4567 72
+北海道大学長
+
+@/home/ec2-user/data/topics/4950 73
+山本  清和
+
+@/home/ec2-user/data/topics/4832 74
+雪印乳業株式会社
+
+@/home/ec2-user/data/topics/1472 75
+@/home/ec2-user/data/topics/1048 76
+長坂  重吉
+
+@/home/ec2-user/data/topics/1381 77
+太田  仁彦
+
+@/home/ec2-user/data/topics/1133 78
+株式会社日本ソフト
+
+@/home/ec2-user/data/topics/1907 79
+@/home/ec2-user/data/topics/4606 80
+グラフテック株式会社
+
+@/home/ec2-user/data/topics/1673 81
+愛知電熱株式会社
+
+@/home/ec2-user/data/topics/3893 82
+株式会社山武
+
+@/home/ec2-user/data/topics/4848 83
+@/home/ec2-user/data/topics/3787 84
+株式会社イメ−ジパ−トナ−
+
+@/home/ec2-user/data/topics/4915 85
+株式会社デジタルパサージュ
+
+@/home/ec2-user/data/topics/4694 86
+高砂電器産業株式会社
+
+@/home/ec2-user/data/topics/1207 87
+日本精機株式会社
+
+@/home/ec2-user/data/topics/4907 88
+@/home/ec2-user/data/topics/4972 89
+@/home/ec2-user/data/topics/4875 90
+@/home/ec2-user/data/topics/4709 91
+@/home/ec2-user/data/topics/1398 92
+@/home/ec2-user/data/topics/4690 93
+翼システム株式会社
+
+@/home/ec2-user/data/topics/1089 94
+@/home/ec2-user/data/topics/2233 95
+三ツ星ベルト株式会社
+
+@/home/ec2-user/data/topics/4169 96
+中央電子株式会社
+
+@/home/ec2-user/data/topics/4368 97
+コニカ株式会社
+
+@/home/ec2-user/data/topics/3357 98
+@/home/ec2-user/data/topics/3486 99
+@/home/ec2-user/data/topics/2162 100
+@/home/ec2-user/data/topics/3419 101
+@/home/ec2-user/data/topics/3418 102
+@/home/ec2-user/data/topics/3370 103
+@/home/ec2-user/data/topics/3414 104
+@/home/ec2-user/data/topics/1946 105
+@/home/ec2-user/data/topics/3533 106
+@/home/ec2-user/data/topics/3431 107
+@/home/ec2-user/data/topics/3426 108
+ニチアス株式会社
+
+@/home/ec2-user/data/topics/1655 109
+セルポートシステムズ株式会社
+
+@/home/ec2-user/data/topics/4738 110
+水島臨海倉庫株式会社
+
+@/home/ec2-user/data/topics/1449 111
+インターナショナル・ビジネス・マシーンズ・コーポレーション
+
+@/home/ec2-user/data/topics/4794 112
+@/home/ec2-user/data/topics/1604 113
+アイダエンジニアリング株式会社
+
+@/home/ec2-user/data/topics/1983 114
+@/home/ec2-user/data/topics/1753 115
+小竹  勇治
+
+@/home/ec2-user/data/topics/1104 116
+東海旅客鉄道株式会社
+
+@/home/ec2-user/data/topics/2003 117
+日立プラント建設株式会社
+
+@/home/ec2-user/data/topics/1447 118
+@/home/ec2-user/data/topics/1719 119
+@/home/ec2-user/data/topics/1222 120
+ポーラ化成工業株式会社
+
+@/home/ec2-user/data/topics/3736 121
+三菱鉛筆株式会社
+
+@/home/ec2-user/data/topics/1581 122
+株式会社エフ・エー・アイ
+
+@/home/ec2-user/data/topics/1922 123
+株式会社オービック・ビジネス・コンサルタント
+
+@/home/ec2-user/data/topics/1350 124
+三井海上火災保険株式会社
+
+@/home/ec2-user/data/topics/4479 125
+内山  正巳
+
+@/home/ec2-user/data/topics/1863 126
+株式会社  川井商会
+
+@/home/ec2-user/data/topics/4413 127
+小橋工業株式会社
+
+@/home/ec2-user/data/topics/4641 128
+埼玉日本電気株式会社
+
+@/home/ec2-user/data/topics/4496 129
+@/home/ec2-user/data/topics/4468 130
+@/home/ec2-user/data/topics/4283 131
+@/home/ec2-user/data/topics/5010 132
+@/home/ec2-user/data/topics/1620 133
+@/home/ec2-user/data/topics/4242 134
+@/home/ec2-user/data/topics/1512 135
+@/home/ec2-user/data/topics/4998 136
+@/home/ec2-user/data/topics/4279 137
+ノリタケダイヤ株式会社
+
+@/home/ec2-user/data/topics/4411 138
+日本アビオニクス株式会社
+
+@/home/ec2-user/data/topics/1860 139
+株式会社日立メディコ
+
+@/home/ec2-user/data/topics/1905 140
+岩井  隆敏
+
+@/home/ec2-user/data/topics/1537 141
+株式会社大生機械
+
+@/home/ec2-user/data/topics/1625 142
+ノーリツ鋼機株式会社
+
+@/home/ec2-user/data/topics/1312 143
+株式会社ベルウッド
+
+@/home/ec2-user/data/topics/1231 144
+株式会社三州コンクリート工業
+
+@/home/ec2-user/data/topics/1071 145
+株式会社ウェッジ
+
+@/home/ec2-user/data/topics/4652 146
+船井電機株式会社
+
+@/home/ec2-user/data/topics/4405 147
+@/home/ec2-user/data/topics/3931 148
+@/home/ec2-user/data/topics/4704 149

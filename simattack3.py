@@ -16,13 +16,13 @@ from pythonlib import attack
 from pythonlib import sysf
 from pythonlib import crand
 
-inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],output-floder"
+inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[0(diff/1(same))],output-floder"
 
-if len(sys.argv) != 7:
+if len(sys.argv) != 8:
     print "input:" + inputform
     sys.exit(1)
 
-outf = sys.argv[6]+'/sim-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
+outf = sys.argv[-1]+'/sim3-'+'-'.join(map(lambda x:x.strip('/').split('/')[-1],sys.argv[2:-1]))
 fout = sysf.logger(outf,inputform)
 otype = 0
 if sys.argv[6] == 'stdout':
@@ -30,6 +30,7 @@ if sys.argv[6] == 'stdout':
 otype = 0
 
 stype = int(sys.argv[5])
+dtype = int(sys.argv[6])
 zipf = float(sys.argv[4])
 
 if stype == 3:
@@ -54,6 +55,7 @@ if stype == 3:
         p = p.transpose()
 elif stype == 2:
     b = np.load('/home/ec2-user/data/classinfo/vt.npy')#lsa result
+    b = b[:64]
     ukk = b.shape[0]
     s = None
     wtolu = sm.readwl("/home/ec2-user/git/statresult/wordslist_dsw.txt")
@@ -127,8 +129,13 @@ for user in u:
             if count < 3:
                 pu.append([line.strip('\n') for line in lines])
             else:
-                #result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)
-                result = sm.dg6(root+name,sys.argv[3],None,None,ti,dummylen,b,s,wtolu,ukk,stype)
+                if dtype == 1:
+                    result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)
+                    #result = sm.dg6(root+name,sys.argv[3],None,None,ti,dummylen,b,s,wtolu,ukk,stype)
+                elif zipf < 0:
+                    result = sm.dg3(root+name,cll,b,s,p,wtolu,ltow,ukk)
+                else:
+                    result = sm.dg(root+name,cll,sys.argv[3],b,s,wtolu,ukk,zipf,stype)
                 sim = []
                 for i in range(0,len(result)-1):
                     sim.append(attack.simatt(result[i],pu))
