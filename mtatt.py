@@ -117,6 +117,8 @@ total = 0
 mthit = 0
 mtls = 0
 usernum = 0
+prt = 0
+prl = 0
 
 for user in u:
     if len(u[user]) > 5:
@@ -129,7 +131,7 @@ for user in u:
         random.shuffle(u[user])
 
 dummylen = len(cll.values()[0])
-
+tcheck = {}
 for user in u:
     print user
     usernum = usernum + 1
@@ -137,12 +139,12 @@ for user in u:
     for (name,real) in u[user]:
         print '@'+root+name,total
         count = count + 1
-        #fin = open(root+name,'r')
-        #line = fin.read()
-        #title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
-        #cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H][0-9]+?[A-Z])',line,re.DOTALL)
-        #print title.group(1)
-        #print cl.group(2)
+        fin = open(root+name,'r')
+        line = fin.read()
+        title = re.search(r'【発明の名称】(.*?)\(',line,re.DOTALL)
+        cl = re.search(r'(【国際特許分類第.*版】.*?)([A-H])[0-9]+?[A-Z]',line,re.DOTALL)
+        print title.group(1)
+        print cl.group(2)
         if dtype == 1:
           result = sm.dg5(root+name,sys.argv[3],None,None,dummylen,b,s,wtolu,ukk,stype)  
         elif stype == 3 and type(zipf) == float and zipf < 0:
@@ -152,15 +154,23 @@ for user in u:
         else:
             result = sm.dg(root+name,cll,sys.argv[3],b,None,wtolu,ukk,zipf,stype)
         mt = []
-        t = []
+        pr = []
         for i in range(0,len(result)-1):
             if atype == 2:
                 vec = sm.vecof(result[i],a,wtola,akk)
             elif atype == 3:
                 vec = sm.vecof3(result[i],a,sa,wtola,akk)
+                pr.append(sm.prq(result[i],a,sa,wtola,akk))
             mt.append(vec.max())
-            t.append(vec.argmax())
         total = total +1
+        if atype == 3:
+            if np.array(pr).argmax() == int(result[-1]):
+                prt = prt + 1
+            if np.array(pr).argmin() == int(result[-1]):
+                prl = prl + 1
+
+
+
         if np.array(mt).argmax() == int(result[-1]):
             mthit = mthit + 1
         if np.array(mt).argmin() == int(result[-1]):
@@ -177,5 +187,6 @@ print 'mthls:',mtls
 print 'total:',total
 print 'p:',mthit*1.0/total
 print 'q:',mtls*1.0/total
-
+print 'prt:',prt*1.0/total
+print 'prl:',prl*1.0/total
 sysf.pend()
