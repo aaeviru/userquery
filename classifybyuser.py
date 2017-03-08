@@ -17,19 +17,28 @@ from pythonlib import crand
 from pythonlib import getapy as gp
 from pythonlib import attack
 
-inputform = "topic-folder,cl-file,cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)],output-floder"
+inputform = "topic-folder,cl-file[rand[dummylength] for random],cl-floder,zipf,stype[0(tfidf)/1(tfidf2)/2(lsa)/3(lda)],dtype[<0(diff*rand)/0(diff)/1(same)/>=2(diff*same)],output-floder"
 
 if len(sys.argv) == 2 and (sys.argv[1] == '-h' or sys.argv[1] == '--help'):
+	print "input:" + inputform
 	print '''
 	ダミー質問を生成し攻撃するプログラムです
 	topic-folder：真の質問フォルダ
-	cl-file：クラスグループフィル
+	cl-file：クラスグループフィル(clasp.py)
 	cl-floder：単語ベクトルフォルダ
 	zipf：<1 提案手法
 	      >1 zipf分布でダミー単語を選ぶ
 	stype：質問者が用いる意味分析手法
 	dtype：ダミートピックの選び方
 	output-floder：結果フォルダ
+
+	--------------------------------------------------
+	HDGA:cl-flie = rand[dummylength],stype = 3,zipf < 0,dtype = 0
+	QOT-lsa:cl-file = b2-1.txt,stype = 2,0 < zipf < 1,dtype = 0
+	QOT-lda:cl-file = b3-1.txtstype = 3,0 < zipf < 1,dtype = 0
+	QOI-lsa:stype = 2,0 < zipf < 1,dtype = 1
+	QOI-lda:stype = 3,0 < zipf < 1,dtype = 1
+	データ分割:cl-file = "A B C D E F G H",stype = 1,0 < zipf < 1,dtype = 0
 	'''
 	sys.exit(1)
 elif len(sys.argv) != 8:
